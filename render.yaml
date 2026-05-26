@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: amortentia-backend
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install --legacy-peer-deps && npm run backend:build
+    startCommand: npm run backend:start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GELATO_MOCK
+        value: "true"
+      - key: PAYPAL_ENVIRONMENT
+        value: sandbox
+      - key: PAYPAL_AUTO_CAPTURE
+        value: "true"
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: COOKIE_SECRET
+        sync: false
+      - key: STORE_CORS
+        sync: false
+      - key: ADMIN_CORS
+        sync: false
+      - key: AUTH_CORS
+        sync: false

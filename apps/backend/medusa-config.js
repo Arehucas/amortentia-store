@@ -1,3 +1,5 @@
+require("ts-node/register/transpile-only")
+
 const { loadEnv, defineConfig } = require("@medusajs/framework/utils")
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd())
@@ -14,16 +16,16 @@ module.exports = defineConfig({
     },
   },
   modules: [
-    { resolve: "./src/modules/gelato-persistence" },
-    { resolve: "./src/modules/gelato" },
-    { resolve: "./src/modules/gelato-catalog" },
-    { resolve: "./src/modules/email" },
+    { resolve: "./src/modules/gelato-persistence/index.ts" },
+    { resolve: "./src/modules/gelato/index.ts" },
+    { resolve: "./src/modules/gelato-catalog/index.ts" },
+    { resolve: "./src/modules/email/index.ts" },
     {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
           {
-            resolve: "./src/modules/paypal",
+            resolve: "./src/modules/paypal/index.ts",
             id: "paypal",
             options: {
               client_id: process.env.PAYPAL_CLIENT_ID,

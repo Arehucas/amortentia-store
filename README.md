@@ -102,6 +102,14 @@ Recomendado: dos servicios separados usando la misma Supabase:
 - Backend Medusa en Railway/Render con Root Directory `apps/backend` y la misma `DATABASE_URL` de Supabase.
 - En Vercel configura `NEXT_PUBLIC_MEDUSA_BACKEND_URL` con la URL pública del backend.
 
+Render backend desde la raíz del repo:
+
+```bash
+Build Command: npm install --legacy-peer-deps && npm run backend:build
+Start Command: npm run backend:start
+Root Directory: vacío
+```
+
 ## Checklist MVP (PRD §21)
 
 - [ ] Compra: producto → carrito → checkout → pedido pagado
