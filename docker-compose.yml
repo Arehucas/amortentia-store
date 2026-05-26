@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: amortentia-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: medusa
+      POSTGRES_PASSWORD: medusa
+      POSTGRES_DB: amortentia
+    volumes:
+      - amortentia_pg_data:/var/lib/postgresql/data
+
+volumes:
+  amortentia_pg_data:
