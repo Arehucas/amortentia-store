@@ -32,6 +32,18 @@ npm run seed:mvp
 npm run dev
 ```
 
+Con Supabase configurado en `apps/backend/.env`, puedes lanzar backend y storefront juntos sin Postgres local:
+
+```bash
+npm run dev:all
+```
+
+Opcionalmente puedes saltar pasos iniciales:
+
+```bash
+SKIP_MIGRATIONS=true SKIP_SEED=true npm run dev:all
+```
+
 En otra terminal:
 
 ```bash
@@ -50,7 +62,7 @@ npm run dev
 | Variable | Valor |
 |----------|--------|
 | `GELATO_MOCK` | `true` |
-| PayPal vacío | Usa `pp_system_default` (pago manual) en checkout |
+| PayPal vacío | El seed usa solo `pp_system_default` (pago manual) |
 | `RESEND_API_KEY` vacío | Emails se loguean en consola |
 
 Simular webhooks Gelato:
@@ -99,4 +111,5 @@ Configura en Gelato Dashboard el webhook → `https://tu-backend/webhooks/gelato
 npm run backend:dev
 npm run storefront:dev
 npm run backend:seed
+npm run dev:all
 ```

@@ -46,6 +46,10 @@ export default async function seedMvp({ container }: { container: MedusaContaine
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
   const link = container.resolve(ContainerRegistrationKeys.LINK)
   const fulfillmentModule = container.resolve(Modules.FULFILLMENT)
+  const paymentProviders =
+    process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET
+      ? ["pp_paypal_paypal", "pp_system_default"]
+      : ["pp_system_default"]
 
   logger.info("[seed-mvp] Iniciando seed Amortentia (ES / EUR)...")
 
@@ -88,7 +92,7 @@ export default async function seedMvp({ container }: { container: MedusaContaine
           name: "España",
           currency_code: "eur",
           countries: ["es"],
-          payment_providers: ["pp_paypal_paypal", "pp_system_default"],
+          payment_providers: paymentProviders,
         },
       ],
     },

@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "npm -r dev",
+    "dev:all": "bash scripts/dev-all.sh",
     "build": "npm -r build",
     "start": "turbo start",
     "lint": "turbo lint",
