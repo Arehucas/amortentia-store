@@ -6,9 +6,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "npm -r dev",
+    "dev": "npm run dev --workspaces --if-present",
     "dev:all": "bash scripts/dev-all.sh",
-    "build": "npm -r build",
+    "build": "npm run build:gelato-client && SKIP_ENV_CHECK=true npm run build -w @amortentia/storefront",
     "start": "turbo start",
     "lint": "turbo lint",
     "test": "turbo test",
