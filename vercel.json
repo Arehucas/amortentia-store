@@ -1,6 +1,6 @@
 {
   "buildCommand": "cd apps/storefront && SKIP_ENV_CHECK=true npm run build",
-  "installCommand": "npm install next@15.5.18 --no-save --workspaces=false --legacy-peer-deps && cd apps/storefront && npm install --workspaces=false --legacy-peer-deps",
+  "installCommand": "cd apps/storefront && npm install --workspaces=false --legacy-peer-deps",
   "framework": "nextjs",
   "outputDirectory": "apps/storefront/.next"
 }
