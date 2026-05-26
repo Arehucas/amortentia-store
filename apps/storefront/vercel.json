@@ -1,0 +1,6 @@
+{
+  "buildCommand": "SKIP_ENV_CHECK=true npm run build",
+  "installCommand": "npm install --workspaces=false --legacy-peer-deps",
+  "framework": "nextjs",
+  "outputDirectory": ".next"
+}

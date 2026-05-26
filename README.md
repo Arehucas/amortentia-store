@@ -90,11 +90,17 @@ npm run simulate:gelato-webhook -- <medusa_order_id>
 
 | Componente | Plataforma |
 |------------|------------|
-| Storefront | Vercel |
-| Backend | Railway / Render |
+| Storefront | Vercel (`apps/storefront`) |
+| Backend | Railway / Render (`apps/backend`) |
 | Postgres | Supabase |
 
 Configura en Gelato Dashboard el webhook → `https://tu-backend/webhooks/gelato` con el secreto `GELATO_WEBHOOK_SECRET`.
+
+Recomendado: dos servicios separados usando la misma Supabase:
+
+- Frontend en Vercel con Root Directory `apps/storefront`.
+- Backend Medusa en Railway/Render con Root Directory `apps/backend` y la misma `DATABASE_URL` de Supabase.
+- En Vercel configura `NEXT_PUBLIC_MEDUSA_BACKEND_URL` con la URL pública del backend.
 
 ## Checklist MVP (PRD §21)
 
