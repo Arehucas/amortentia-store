@@ -39,7 +39,9 @@
     "zod": "4.2.0",
     "@amortentia/gelato-client": "*",
     "pg": "^8.13.1",
-    "express-rate-limit": "^7.4.1"
+    "express-rate-limit": "^7.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.15.2",
@@ -53,8 +55,6 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.2",
     "vite": "^5.4.14",
     "yalc": "^1.0.0-pre.53"
   },
