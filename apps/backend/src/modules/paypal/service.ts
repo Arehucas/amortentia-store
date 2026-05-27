@@ -55,13 +55,15 @@ export default class PayPalPaymentProviderService extends AbstractPaymentProvide
       ...options,
     }
     this.mockMode_ =
-      process.env.NODE_ENV === "development" &&
+      (process.env.NODE_ENV === "development" ||
+        process.env.PAYPAL_MOCK === "true") &&
       (!this.options_.client_id || !this.options_.client_secret)
   }
 
   static validateOptions(options: Record<string, unknown>): void {
     const isDev = process.env.NODE_ENV === "development"
-    if (isDev && (!options.client_id || !options.client_secret)) {
+    const isMock = process.env.PAYPAL_MOCK === "true"
+    if ((isDev || isMock) && (!options.client_id || !options.client_secret)) {
       return
     }
     if (!options.client_id || !options.client_secret) {

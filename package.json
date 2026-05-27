@@ -13,6 +13,7 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "backend:build": "npm run build:gelato-client && npm run build -w @amortentia/backend",
+    "backend:predeploy": "npm run predeploy -w @amortentia/backend",
     "backend:start": "npm run start -w @amortentia/backend",
     "backend:seed": "npm run seed:mvp -w @amortentia/backend",
     "backend:dev": "npm run dev -w @amortentia/backend",

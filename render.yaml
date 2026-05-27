@@ -5,10 +5,18 @@ services:
     plan: free
     region: frankfurt
     buildCommand: npm install --legacy-peer-deps && npm run backend:build
+    preDeployCommand: npm run backend:predeploy
     startCommand: npm run backend:start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: MEDUSA_WORKER_MODE
+        value: shared
+      - key: DISABLE_MEDUSA_ADMIN
+        value: "false"
+      - key: PAYPAL_MOCK
+        value: "true"
       - key: GELATO_MOCK
         value: "true"
       - key: PAYPAL_ENVIRONMENT
@@ -16,6 +24,10 @@ services:
       - key: PAYPAL_AUTO_CAPTURE
         value: "true"
       - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: MEDUSA_BACKEND_URL
         sync: false
       - key: JWT_SECRET
         sync: false
@@ -26,4 +38,10 @@ services:
       - key: ADMIN_CORS
         sync: false
       - key: AUTH_CORS
+        sync: false
+      - key: PAYPAL_CLIENT_ID
+        sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      - key: PAYPAL_WEBHOOK_ID
         sync: false
