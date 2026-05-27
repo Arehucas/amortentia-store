@@ -19,10 +19,15 @@ function verifyWebhookSecret(req: MedusaRequest): boolean {
   const provided = Array.isArray(header) ? header[0] : String(header)
   const expected = createHash("sha256").update(secret).digest("hex")
 
+  if (provided === secret || provided === `Bearer ${secret}`) return true
+
   try {
-    return timingSafeEqual(Buffer.from(provided), Buffer.from(expected))
+    return timingSafeEqual(
+      Uint8Array.from(Buffer.from(provided)),
+      Uint8Array.from(Buffer.from(expected))
+    )
   } catch {
-    return provided === secret || provided === `Bearer ${secret}`
+    return false
   }
 }
 
